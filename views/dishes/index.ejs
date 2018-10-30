@@ -1,0 +1,14 @@
+<main>
+  <h1>All Dishes</h1>
+  <div>
+    <%# why is this dishes and not Dish %>
+    <% dishes.forEach(dish => {%>
+      <div>
+      <a href="/dishes/<%= dish.id %>">
+      <h3><%= dish.name %></h3>
+      <img width="200px" height="200px" src="<%= dish.image %>" />
+      </a>
+      </div>
+      <% }) %>
+    </div>
+</main>

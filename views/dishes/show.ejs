@@ -1,0 +1,19 @@
+<h1><%= name %></h1>
+<p>Ingredients:
+  <ul>
+  <% ingredients.forEach(ingredient => { %>
+    <li><%= ingredient %></li>
+    <% }) %>
+  </ul>
+</p>
+<img src="<%= image %>"/>
+
+<%# I could have used ?_method=GET in action but by taking away method="post" at the end the default method for forms is GET %>
+<form action="/dishes/<%= _id %>/edit">
+  <button>EDIT DISH</button>
+</form>
+
+<%# How does this form know to use the delete route when pressed? %>
+<form action="/dishes/<%= _id %>?_method=DELETE" method="post">
+  <button>DELETE DISH</button>
+</form>
