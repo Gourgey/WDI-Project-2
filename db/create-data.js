@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const environment = require('../config/environment');
 const Dish = require('../models/dish');
-mongoose.connect(environment.dbUrl);
+mongoose.connect(environment.dbUri);
 
 // Delete existing data first
 Dish.collection.drop();
