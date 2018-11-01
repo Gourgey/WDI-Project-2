@@ -1,7 +1,7 @@
 const port = process.env.PORT || 4000;
-const dbURI = process.env.MONGODB_URI || 'mongodb://localhost/japanese-dishes';
+const dbUri = process.env.MONGODB_URI || 'mongodb://localhost/japanese-dishes';
 
 module.exports = {
   port,
-  dbURI
+  dbUri
 };
