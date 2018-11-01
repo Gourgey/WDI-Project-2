@@ -1,6 +1,40 @@
-<form action="/register" method="post">
-  <input type="text" name="username">
-  <input type="text" name="email">
-  <input type="text" name="password">
-  <button>Register</button>
-</form>
+<div class="pageHeight">
+  <form action="/register" method="post">
+
+    <div class="field">
+      <div class="control has-icons-left">
+        <input class="input" name="username" type="text" placeholder="Username">
+        <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" name="email" type="email" placeholder="Email">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </p>
+    </div>
+
+      <div class="field">
+        <p class="control has-icons-left">
+          <input class="input" name="password" type="password" placeholder="Password">
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+        </p>
+      </div>
+
+
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Register</button>
+        </div>
+      </div>
+
+    </form>
+  </div>

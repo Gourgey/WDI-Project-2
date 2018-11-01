@@ -1,39 +1,36 @@
-
 <nav class="navbar is-fixed-top">
-  <div class="level level-item level-left">
-  <p class="level-item has-text-centered">
-    <a class="link is-info" href="/">Home</a>
-  </p>
-    <p class="level-item has-text-centered">
-    <a class="link is-info" href="/about">About</a>
-  </p>
+  <div class="navbar-brand">
+
+
+    <a class="navbar-item" href="/">Home</a>
+
+
+    <a class="navbar-item" href="/about">About</a>
+
 </div>
-<div class="level level-item">
-  <p class="level-item has-text-centered">
-    <img class="image is-64x64" src="https://img3.stockfresh.com/files/p/patrimonio/m/62/323684_stock-photo-chinese-japanese-asian-chef-cook-icon.jpg" alt="" style="height: 30px;">
-  </p>
-</div>
-  <div class="level level-item level-right">
-  <p class="level-item has-text-centered">
-    <a class="link is-info" href="/dishes">All Dishes</a>
-  </p>
+
+  <div class="navbar-end">
+
+    <a class="navbar-item" href="/dishes">All Dishes</a>
+
   <% if(locals.isLoggedIn) { %>
-    <p class="level-item has-text-centered">
-    <a class="link is-info" href="/dishes/new">Add a Dish</a>
-    </p>
-    <p class="level-item has-text-centered">
-      <a class="link is-info" href="/logout">Logout</a>
-      </p>
-      <p class="level-item has-text-centered">
-      <a class="link is-info" href="/"><%= locals.currentUser.username %></a>
-      </p>
+
+    <a class="navbar-item" href="/dishes/new">Add a Dish</a>
+
+    <a class="navbar-item" href="/logout">Logout</a>
+
+      <a class="navbar-item" href="/profile"><%= locals.currentUser.username %></a>
+
+
     <% } else { %>
-      <p class="level-item has-text-centered">
-      <a class="link is-info" href="/login">Login</a>
-      </p>
-      <p class="level-item has-text-centered">
-      <a class="link is-info" href="/register">Register</a>
+
+        <a class="navbar-item" href="/login">Login</a>
+
+      <a class="navbar-item" href="/register">Register</a>
     <% } %>
-  </p>
+
   </div>
+
+
+
 </nav>

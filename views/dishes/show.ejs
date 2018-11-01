@@ -1,57 +1,108 @@
-<h1><%= name %></h1>
-<p>Ingredients:
-  <ul>
-    <%# You can use the key 'ingredients' from the model because this page is used for when we are looking at a specific dish %>
-    <%# and so can reference it's items directly.  But how does this page know about the dish we are looking at without requiring? %>
-  <% ingredients.forEach(ingredient => { %>
-    <li><%= ingredient %></li>
-    <% }) %>
-  </ul>
-</p>
-<img src="<%= image %>"/>
+<div class="pageHeight">
+    <h1><%= name %></h1>
+    <h2>Ingredients:
+
+        <%# You can use the key 'ingredients' from the model because this page is used for when we are looking at a specific dish %>
+        <%# and so can reference it's items directly.  But how does this page know about the dish we are looking at without requiring? %>
+        <% ingredients.forEach(ingredient => { %>
+          <h3><%= ingredient %></h3>
+          <% }) %>
+        
+      </h2>
+
+
+        <figure class="showImage">
+          <img id="special" width="600px" height="600px" src="<%= image %>">
+
+
+      <% if(locals.isLoggedIn) { %>
+
+    <form action="/dishes/<%= _id %>/edit">
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button">EDIT DISH</button>
+      </div>
+    </div>
+    </form>
+
+    <form action="/dishes/<%= _id %>?_method=DELETE" method="post">
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button">DELETE DISH</button>
+      </div>
+    </div>
+    </form>
+
+    <% } %>
+    <h3><%= description %></h3>
+  </figure>
+  <br>
+
 
 <% reviews.forEach(review => { %>
-  <div>
-  <%= review.username %>
-  </div>
-  <div>
-  <%= review.rating %>/10
-  </div>
-  <div>
-  <%= review.comment %>
-  </div>
-  <form method="POST" action="/dishes/<%= _id %>/reviews/<%= review._id %>?_method=DELETE">
-    <button>x</button>
-  </form>
-  <span class="event-date">
-  <%= review.Date %>
-  </span>
-  <div>
-  <% console.log('THIS IS THE REVEIEWWWWW', review.Date) %>
-  </div>
+  <div class="card-content">
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-48x48">
+        <img src="https://bulma.io/images/placeholders/128x128.png">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= review.username %></strong>
+          <br>
+          <%= review.comment %>
+          <br>
+          <small><a>Like</a> · <a>Reply</a> · <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time> </small>
+          <form method="POST" action="/dishes/<%= _id %>/reviews/<%= review._id %>?_method=DELETE">
+          <button class="delete"></button>
+          </form>
+        </p>
+      </div>
+      </div>
+    </article>
+    </div>
+
   <% }) %>
 
 
 <%# How does each form know to use the delete or edit route when the button pressed? %>
 <%# For Edit form, I could have used ?_method=GET in action but by taking away method="post" at the end the default method for forms is GET %>
 <% if(locals.isLoggedIn) { %>
-  <form action="/dishes/<%= _id %>/edit">
-  <button>EDIT DISH</button>
-  </form>
 
-  <form action="/dishes/<%= _id %>?_method=DELETE" method="post">
-  <button>DELETE DISH</button>
-  </form>
 
-    <div>
+  <h3>Write your Review:</h3>
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="https://bulma.io/images/placeholders/128x128.png">
+      </p>
+    </figure>
     <form action="/dishes/<%= _id %>/reviews" method="post">
-    <input name="username" type="hidden" value="<%= locals.currentUser.username %>">
-    <textarea name="comment"></textarea>
-    <input name="rating" type="number" min="0" max="10">
-    <button>Blog It!!!</button>
+
+      <div class="field">
+
+        <span>
+        <input name="username" type="hidden" value="<%= locals.currentUser.username %>">
+        </span>
+        <span>
+        <textarea name="comment" class="textarea" placeholder="Add a comment..."></textarea>
+        </span>
+        <span>
+        <p>RATEEEEEEE</p> <input name="rating" type="number" min="0" max="10">
+        </span>
+
+      </div>
+      <div class="field">
+
+          <button class="button">Post comment</button>
+
+      </div>
     </form>
-    </div>
+  </article>
 
   <% } else { %>
     <h3><a href="/login">Login</a> or <a href="/register">Register</a> to edit, delete or comment on this dish</h3>
     <% } %>
+</div>

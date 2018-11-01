@@ -1,7 +1,39 @@
 <%# What you put for name and value have to match the model.  Name and Value have the same answer(for lack of a better term) in the double quotes. %>
-<form action="/dishes/<%= _id %>?_method=PUT" method="post">
-  <input type="text" name="name" value="<%= name %>" placeholder="Name the Dish">
-  <input type="text" name="ingredients" value="<%= ingredients %>" placeholder="List the Ingredients">
-  <input type="text" name="image" value="<%= image %>" placeholder="URL of the Image to Show">
-  <button>UPDATE</button>
-</form>
+<div class="pageHeight">
+  <form action="/dishes/<%= _id %>?_method=PUT" method="post">
+
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" type="text" name="name" value="<%= name %>" placeholder="Name the Dish">
+        <span class="icon is-small is-left">
+          <i class="fas"></i>
+        </span>
+      </p>
+    </div>
+
+      <div class="field">
+        <p class="control has-icons-left">
+          <input class="input" type="text" name="ingredients" value="<%= ingredients %>" placeholder="List the Ingredients">
+          <span class="icon is-small is-left">
+            <i class="fas"></i>
+          </span>
+        </p>
+      </div>
+
+      <div class="field">
+        <p class="control has-icons-left">
+          <input class="input" type="text" name="image" value="<%= image %>" placeholder="URL of the Image to Show">
+          <span class="icon is-small is-left">
+            <i class="fas"></i>
+          </span>
+        </p>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Update</button>
+        </div>
+      </div>
+
+    </form>
+  </div>

@@ -1,12 +1,17 @@
+
 <main>
+  <div class="imageShadow">
+  </div>
   <h1>All Dishes</h1>
-  <div>
+  <div class="columns is-multiline is-mobile">
     <%# why is this dishes and not Dish %>
     <% dishes.forEach(dish => {%>
-      <div>
+      <div class="column is-3-desktop is-4-tablet is-6-mobile">
       <a href="/dishes/<%= dish.id %>">
       <h3><%= dish.name %></h3>
-      <img width="200px" height="200px" src="<%= dish.image %>" />
+      <div class="myContainer">
+      <img  width="200px" height="200px" src="<%= dish.image %>" />
+      </div>
       </a>
       </div>
       <% }) %>

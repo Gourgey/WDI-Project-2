@@ -1,151 +1,59 @@
-.image {
-   background-color: #490D40;
-   background: url(https://sonorangirl.github.io/Earth-Quotes/img/google-earth-view-South-Iceland3.jpg) no-repeat center center;
-   background-size: cover;
-   height: 570px;
-   margin-top: -20px;
-
-   .heading {
-      color: white;
-      text-align: center;
-      padding-top: 200px;
-   }
-
-   p {
-      text-align: center;
-      padding: 20px 60px;
-
-       .btn {
-         background-color: transparent;
-         color: white;
-         border: 1px solid white;
-         padding: 10px;
-         font-size: 1.2em;
-
-          &:hover {
-             color: #C57ED3;
-             border-color: #C57ED3;
-          }
-      }
-   }
-}
-
 .navbar {
-  height: 80px;
   background-color: transparent;
-  border: none;
+}
+
+.navbar-item {
+  color: #cb2100;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+
+.navbar-item:hover {
   color: white;
-  z-index: 100;
-  transition: background-color 1s ease 0s;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
 }
 
 
-.navbar-default {
-
-   .navbar-brand {
-     margin-top: 10px;
-     color: white;
-
-      &:hover {
-         color: #C57ED3;
-         border: 1px solid #C57ED3;
-      }
-   }
-
-  .navbar-nav {
-
-    > li {
-
-      > a {
-        color: white;
-        margin: 10px 5px 5px 5px;
-
-      }
-      > a:hover, > a:active, > a:focus {
-        color: #C57ED3;
-        border: 1px solid #C57ED3;
-      }
-      > a:visited {
-        color: #C57ED3;
-        text-decoration: none;
-      }
-
-    } //end li
-
-    > .active {
-
-      > a, > a:hover, > a:focus {
-        background-color: transparent;
-        color: #C57ED3;
-      }
-
-    }
-
-  } //end .navbar-nav
-
-  //Collapsed styles
-  .navbar-toggle {
-    border-color: #C57ED3;
-
-      &:hover, &:focus {
-        background-color: #490D40;
-      }
-
-
-
-      .icon-bar {
-        color: #C57ED3;
-        background-color: #C57ED3;
-
-      }
-  }
-
-  .navbar-collapse.collapse.in ul {
-    background-color: #490D40;
-  }
-
-} //end .navbar-default
-
-
-
-/* Solid class attached on scroll past first section */
-
-.navbar.solid {
-  background-color: #490D40;
-  transition: background-color 1s ease 0s;
-  box-shadow: 0 0 4px grey;
-
-    .navbar-brand {
-      color: #C57ED3;
-      transition: color 1s ease 0s;
-    }
-
-    .navbar-nav {
-
-       > li {
-
-          > a {
-            color: #C57ED3;
-            transition: color 1s ease 0s;
-          }
-
-       } //end li
-
-    } //end .navbar-nav
-
+.newimg {
+  height: 700px;
 }
 
-.about {
-   background-color: #C57ED3;
-   color: #490D40;
-   height: 600px;
-   text-align: center;
-   margin-top: -20px;
+.newimg2 {
+  height: 400px;
+}
 
-   h2 {
-      padding-top: 220px;
-   }
-   p {
-      padding: 20px 80px;
-   }
+.pageHeight {
+  padding-top: 50px;
+}
+
+.imageShadow {
+  opacity: 0.95;
+  text-align: center;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://img.taste.com.au/e4t_DTV9/w720-h480-cfill-q80/taste/2013/09/prawn-and-vegetable-tempura-135452-1.jpg");
+}
+
+
+
+
+.showImage {
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
+.myContainer img {
+   width: 100%;
 }

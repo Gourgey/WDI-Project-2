@@ -25,6 +25,11 @@ router.get('/about', function(req, res) {
   res.render('pages/about');
 });
 
+// PROFILE
+router.get('/profile', function(req, res) {
+  res.render('pages/profile');
+});
+
 
 // INDEX
 router.get('/dishes', dishController.indexRoute);

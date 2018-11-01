@@ -4,6 +4,7 @@ const dishSchema = mongoose.Schema({
   name: String,
   ingredients: [String],
   image: String,
+  description: String,
   reviews: [{
     username: String,
     rating: Number,
