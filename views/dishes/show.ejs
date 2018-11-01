@@ -1,6 +1,8 @@
 <h1><%= name %></h1>
 <p>Ingredients:
   <ul>
+    <%# You can use the key 'ingredients' from the model because this page is used for when we are looking at a specific dish %>
+    <%# and so can reference it's items directly.  But how does this page know about the dish we are looking at without requiring? %>
   <% ingredients.forEach(ingredient => { %>
     <li><%= ingredient %></li>
     <% }) %>
@@ -8,12 +10,48 @@
 </p>
 <img src="<%= image %>"/>
 
-<%# I could have used ?_method=GET in action but by taking away method="post" at the end the default method for forms is GET %>
-<form action="/dishes/<%= _id %>/edit">
-  <button>EDIT DISH</button>
-</form>
+<% reviews.forEach(review => { %>
+  <div>
+  <%= review.username %>
+  </div>
+  <div>
+  <%= review.rating %>/10
+  </div>
+  <div>
+  <%= review.comment %>
+  </div>
+  <form method="POST" action="/dishes/<%= _id %>/reviews/<%= review._id %>?_method=DELETE">
+    <button>x</button>
+  </form>
+  <span class="event-date">
+  <%= review.Date %>
+  </span>
+  <div>
+  <% console.log('THIS IS THE REVEIEWWWWW', review.Date) %>
+  </div>
+  <% }) %>
 
-<%# How does this form know to use the delete route when pressed? %>
-<form action="/dishes/<%= _id %>?_method=DELETE" method="post">
+
+<%# How does each form know to use the delete or edit route when the button pressed? %>
+<%# For Edit form, I could have used ?_method=GET in action but by taking away method="post" at the end the default method for forms is GET %>
+<% if(locals.isLoggedIn) { %>
+  <form action="/dishes/<%= _id %>/edit">
+  <button>EDIT DISH</button>
+  </form>
+
+  <form action="/dishes/<%= _id %>?_method=DELETE" method="post">
   <button>DELETE DISH</button>
-</form>
+  </form>
+
+    <div>
+    <form action="/dishes/<%= _id %>/reviews" method="post">
+    <input name="username" type="hidden" value="<%= locals.currentUser.username %>">
+    <textarea name="comment"></textarea>
+    <input name="rating" type="number" min="0" max="10">
+    <button>Blog It!!!</button>
+    </form>
+    </div>
+
+  <% } else { %>
+    <h3><a href="/login">Login</a> or <a href="/register">Register</a> to edit, delete or comment on this dish</h3>
+    <% } %>

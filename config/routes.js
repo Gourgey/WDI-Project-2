@@ -1,14 +1,18 @@
 const dishController = require('../controllers/dishController');
 const authController = require('../controllers/authController');
+const reviewsController = require('../controllers/reviewsController');
 const router = require('express').Router();
 const secureRoute = require('../lib/secure');
 
+// REGISTER - Form and Post routes
 router.get('/register', authController.registerFormRoute);
 router.post('/register', authController.registerRoute);
 
+// LOGIN - Form and Post routes
 router.get('/login', authController.loginFormRoute);
 router.post('/login', authController.loginRoute);
 
+// LOGOUT
 router.get('/logout', authController.logoutRoute);
 
 // HOME
@@ -46,6 +50,13 @@ router.put('/dishes/:id', secureRoute, dishController.updateRoute);
 
 // DELETE
 router.delete('/dishes/:id', secureRoute, dishController.deleteRoute);
+
+
+// REVIEWS - CREATE
+router.post('/dishes/:id/reviews', secureRoute, reviewsController.createRoute);
+
+// REVEIWS - DELETE
+router.delete('/dishes/:id/reviews/:reviewId', secureRoute, reviewsController.deleteRoute);
 
 // Why don't I have to export each function - is it becuase of the .Router() line at the top? If so, why not do for all pages?
 module.exports = router;

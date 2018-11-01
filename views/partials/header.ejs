@@ -1,17 +1,39 @@
-<div>
-    <h2><a href="/">JAPANESE FOOOOOD</a></h2>
+
+<nav class="navbar is-fixed-top">
+  <div class="level level-item level-left">
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="/">Home</a>
+  </p>
+    <p class="level-item has-text-centered">
+    <a class="link is-info" href="/about">About</a>
+  </p>
 </div>
-<div>
-  <ul>
-    <li><a href="/about">About</a></li>
-    <li><a href="/dishes">Explore</a></li>
-    <li><a href="/dishes/new">Add a Dish</a></li>
-    <% if(locals.isLoggedIn) { %>
-      <li><a href="/logout">Logout</a></li>
-      <li><a href="/"><%= locals.currentUser.username %></a></li>
+<div class="level level-item">
+  <p class="level-item has-text-centered">
+    <img class="image is-64x64" src="https://img3.stockfresh.com/files/p/patrimonio/m/62/323684_stock-photo-chinese-japanese-asian-chef-cook-icon.jpg" alt="" style="height: 30px;">
+  </p>
+</div>
+  <div class="level level-item level-right">
+  <p class="level-item has-text-centered">
+    <a class="link is-info" href="/dishes">All Dishes</a>
+  </p>
+  <% if(locals.isLoggedIn) { %>
+    <p class="level-item has-text-centered">
+    <a class="link is-info" href="/dishes/new">Add a Dish</a>
+    </p>
+    <p class="level-item has-text-centered">
+      <a class="link is-info" href="/logout">Logout</a>
+      </p>
+      <p class="level-item has-text-centered">
+      <a class="link is-info" href="/"><%= locals.currentUser.username %></a>
+      </p>
     <% } else { %>
-      <li><a href="/login">Login</a></li>
-      <li><a href="/register">Register</a></li>
+      <p class="level-item has-text-centered">
+      <a class="link is-info" href="/login">Login</a>
+      </p>
+      <p class="level-item has-text-centered">
+      <a class="link is-info" href="/register">Register</a>
     <% } %>
-  </ul>
-</div>
+  </p>
+  </div>
+</nav>

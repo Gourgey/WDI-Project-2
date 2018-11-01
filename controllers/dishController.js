@@ -2,6 +2,7 @@ const Dish = require('../models/dish');
 
 
 // INDEX - The render line is accessing the file dishes/index so the / before dishes isn't needed unlike redirect.
+// Why am I making this dishObject and what is it used for?
 function indexRoute(req, res) {
   // Find all the dishes, then render an ejs file:
   // Find returns an array

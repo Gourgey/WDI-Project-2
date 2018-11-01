@@ -11,7 +11,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const auth = require('./lib/auth');
 
-mongoose.connect(environment.dbUrl);
+mongoose.connect(environment.dbURI);
 
 app.use(methodOverride('_method'));
 
