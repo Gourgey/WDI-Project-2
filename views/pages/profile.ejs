@@ -1,25 +1,27 @@
 <div class="pageHeight">
+
+    <% if(locals.isLoggedIn) { %>
   <div class="card-content">
   <article class="media">
-    <figure class="media-left">
-      <p class="image is-48x48">
-        <img src="https://bulma.io/images/placeholders/128x128.png">
-      </p>
-    </figure>
+
+        <img src="<%= locals.currentUser.image %>">
+
     <div class="media-content">
       <div class="content">
-        <p>
-          <strong><%= review.username %></strong>
-          <br>
-          <%= review.comment %>
-          <br>
-          <small><a>Like</a> · <a>Reply</a> · <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time> </small>
-          <form method="POST" action="/dishes/<%= _id %>/reviews/<%= review._id %>?_method=DELETE">
-          <button class="delete"></button>
-          </form>
-        </p>
+        <h1>
+          <strong><%= locals.currentUser.username %>:</strong>
+          <ul>
+           <li>2 Dish Additions</li>
+           <li>8 Reviews</li>
+           <li>3 Site Visits</li>
+           </ul>
+        </h1>
       </div>
       </div>
     </article>
     </div>
+
+
+<% } %>
+
 </div>

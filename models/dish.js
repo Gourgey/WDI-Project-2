@@ -9,8 +9,10 @@ const dishSchema = mongoose.Schema({
     username: String,
     rating: Number,
     comment: String,
-    date: Date
-  }]
+    date: Date,
+    image: String
+  }],
+  reviewCount: Number
 });
 
 const dishModel = mongoose.model('Dish', dishSchema);

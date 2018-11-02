@@ -30,7 +30,7 @@ function createRoute(req, res) {
 // to get the whole object with all it's info and thats what 'result' is.
 // Also, what is req.params? why not req.body.id or is that only for a form just posted.
 function showRoute(req, res) {
-  Dish.findById(req.params.id).then(result =>{
+  Dish.findById(req.params.id).then(result => {
     res.render('dishes/show', result);
   });
 }
@@ -45,16 +45,16 @@ function editRoute(req, res) {
 
 // UPDATE - Why req.params AND req.body
 function updateRoute(req, res) {
-  Dish.findByIdAndUpdate(req.params.id, req.body).then(() => {
-    res.redirect('/dishes');
+  Dish.findByIdAndUpdate(req.params.id, req.body).then(result => {
+    res.redirect(`/dishes/${result._id}`);
   });
 }
 
 
 // delete
 function deleteRoute(req, res) {
-  Dish.findByIdAndDelete(req.params.id).then(() => {
-    res.redirect('/dishes');
+  Dish.findByIdAndDelete(req.params.id).then(result => {
+    res.redirect(`/dishes/${result._id}`);
   });
 }
 
